@@ -975,17 +975,35 @@ body.has-scrolled .scroll-cue {
   transform: scale(0.82);
 }
 
+.svg-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.title-heart {
+  display: inline-block;
+  width: 0.62em;
+  height: 0.62em;
+  margin-left: 0.08em;
+  color: var(--primary);
+  vertical-align: 0.02em;
+}
+
 .idle-heart {
-  font-size: 3rem;
-  line-height: 1;
+  width: 4.6rem;
+  height: 3.45rem;
+  overflow: visible;
   filter: drop-shadow(0 14px 16px rgba(141, 45, 67, 0.16));
   animation: floatIdle 3.4s ease-in-out infinite;
 }
 
 .idle-spark {
   position: absolute;
+  width: 0.95rem;
+  height: 0.95rem;
   color: var(--primary);
-  font-size: 0.85rem;
   animation: twinkle 2.6s ease-in-out infinite;
 }
 
@@ -1016,61 +1034,95 @@ body.has-scrolled .scroll-cue {
   opacity: 1;
 }
 
-.scene-emoji {
-  font-size: 5rem;
-  line-height: 1;
-  filter: drop-shadow(0 16px 18px rgba(141, 45, 67, 0.2));
+.scene-art {
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 14px 14px rgba(141, 45, 67, 0.18));
   transform-origin: 50% 85%;
 }
 
-.scene.is-active .scene-emoji {
+.scene-art--lips {
+  width: 8.4rem;
+  height: 5.6rem;
+}
+
+.scene-art--face {
+  width: 6.4rem;
+  height: 6.4rem;
+}
+
+.scene-art--hug {
+  width: 10.2rem;
+  height: 7.65rem;
+}
+
+.scene.is-active .scene-art {
   animation: kissPop 0.9s var(--ease-bounce);
 }
 
-.scene--mimos .scene-emoji {
-  font-size: 4.3rem;
+/* Mimos: la mano se apoya sobre la cabeza y la acaricia de lado a lado */
+.mimos-group {
+  position: relative;
 }
 
-.scene.is-active.scene--mimos .scene-emoji {
-  animation: squish 1.15s ease-in-out;
+.scene.is-active.scene--mimos .scene-art {
+  animation: pettedHead 2.3s ease-in-out;
+  transform-origin: 50% 90%;
 }
 
 .scene-hand {
   position: absolute;
-  top: 1.8rem;
-  right: 28%;
-  font-size: 2.1rem;
+  top: -7%;
+  left: 22%;
+  width: 56%;
+  height: 40.6%;
+  overflow: visible;
   opacity: 0;
-  transform-origin: 70% 80%;
+  transform-origin: 50% 100%;
+  filter: drop-shadow(0 6px 8px rgba(141, 45, 67, 0.14));
 }
 
 .scene.is-active .scene-hand {
-  animation: pat 0.62s ease-in-out 0.15s 2;
+  animation: headStroke 2.3s ease-in-out;
 }
 
-.scene--abrazos .scene-emoji {
-  font-size: 5.1rem;
+/* Abrazo: cada figurita llega desde su lado y se aprietan */
+.scene-art--hug g {
+  transform-box: view-box;
+  transform-origin: 50% 60%;
 }
 
-.scene.is-active.scene--abrazos .scene-emoji {
-  animation: hugSqueeze 1.2s var(--ease-bounce);
+.scene.is-active.scene--abrazos .scene-art {
+  animation: none;
+}
+
+.scene.is-active .hug-left {
+  animation: hugLeft 1.2s var(--ease-bounce) both;
+}
+
+.scene.is-active .hug-right {
+  animation: hugRight 1.2s var(--ease-bounce) both;
 }
 
 .scene-extra {
   position: absolute;
-  font-size: 1.35rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  color: var(--primary);
   opacity: 0;
 }
 
 .scene-extra--1 {
-  top: 22%;
-  left: 28%;
+  top: 12%;
+  left: 30%;
 }
 
 .scene-extra--2 {
-  right: 27%;
-  bottom: 24%;
-  font-size: 1.1rem;
+  top: 18%;
+  right: 29%;
+  width: 1.05rem;
+  height: 1.05rem;
+  color: #ee8aa2;
 }
 
 .scene.is-active .scene-extra--1 {
@@ -1129,8 +1181,10 @@ body.has-scrolled .scroll-cue {
 }
 
 .affection-btn__icon {
-  font-size: 1.48rem;
-  line-height: 1;
+  display: block;
+  width: 2.1rem;
+  height: 1.55rem;
+  overflow: visible;
   transition: transform 0.25s var(--ease-bounce);
 }
 
@@ -1156,6 +1210,100 @@ body.has-scrolled .scroll-cue {
   opacity: 0;
   will-change: transform, opacity;
   animation: floatUp var(--dur, 1.2s) var(--delay, 0s) ease-out forwards;
+}
+
+.particle--svg svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+}
+
+/* La mano baja hasta la cabeza, la roza 3 veces siguiendo su curva y se va */
+@keyframes headStroke {
+  0% {
+    opacity: 0;
+    transform: translate(-10%, -55%) rotate(-6deg);
+  }
+  12% {
+    opacity: 1;
+    transform: translate(-22%, 8%) rotate(-12deg);
+  }
+  26% {
+    transform: translate(18%, 7%) rotate(9deg);
+  }
+  40% {
+    transform: translate(-22%, 8%) rotate(-12deg);
+  }
+  54% {
+    transform: translate(18%, 7%) rotate(9deg);
+  }
+  68% {
+    transform: translate(-22%, 8%) rotate(-12deg);
+  }
+  82% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(6%, -55%) rotate(6deg);
+  }
+}
+
+/* La cabecita se inclina hacia la caricia y se aplasta un poquito */
+@keyframes pettedHead {
+  0%,
+  100% {
+    transform: none;
+  }
+  12%,
+  40%,
+  68% {
+    transform: rotate(-4deg) scale(1.03, 0.96);
+  }
+  26%,
+  54% {
+    transform: rotate(4deg) scale(1.03, 0.96);
+  }
+  82% {
+    transform: scale(1.02, 0.98);
+  }
+}
+
+@keyframes hugLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-22px) rotate(-8deg);
+  }
+  40% {
+    opacity: 1;
+    transform: translateX(5px) rotate(4deg);
+  }
+  62% {
+    transform: translateX(-1px) rotate(-1deg) scale(1.03, 0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hugRight {
+  0% {
+    opacity: 0;
+    transform: translateX(22px) rotate(8deg);
+  }
+  40% {
+    opacity: 1;
+    transform: translateX(-5px) rotate(-4deg);
+  }
+  62% {
+    transform: translateX(1px) rotate(1deg) scale(1.03, 0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ---------- Cuestionario ---------- */
@@ -2023,13 +2171,19 @@ body.has-scrolled .scroll-cue {
     height: 9.6rem;
   }
 
-  .scene-emoji {
-    font-size: 4.4rem;
+  .scene-art--lips {
+    width: 7.4rem;
+    height: 4.95rem;
   }
 
-  .scene--mimos .scene-emoji,
-  .scene--abrazos .scene-emoji {
-    font-size: 3.9rem;
+  .scene-art--face {
+    width: 5.6rem;
+    height: 5.6rem;
+  }
+
+  .scene-art--hug {
+    width: 9rem;
+    height: 6.75rem;
   }
 
   .affection-btn {
@@ -2198,7 +2352,8 @@ body.has-scrolled .scroll-cue {
   }
 
   .affection-btn__icon {
-    font-size: 1.7rem;
+    width: 2.4rem;
+    height: 1.8rem;
   }
 
   .box-stage {

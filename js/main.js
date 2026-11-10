@@ -54,6 +54,9 @@
   /* ------------------------------------------------------------
      Partículas reutilizables
      ------------------------------------------------------------ */
+  const SVG_NS = "http://www.w3.org/2000/svg";
+  const PARTICLE_COLORS = ["#c24e66", "#d9647c", "#ee8aa2", "#f29bb0", "#c8a24a"];
+
   function spawnParticles(container, emojis, count = 12) {
     if (!container || prefersReduced()) return;
 
@@ -62,7 +65,21 @@
     for (let i = 0; i < count; i += 1) {
       const particle = document.createElement("span");
       particle.className = "particle";
-      particle.textContent = pick(emojis);
+      const item = pick(emojis);
+
+      /* "#id" dibuja un ícono SVG del sprite en lugar de un emoji. */
+      if (item.startsWith("#")) {
+        const svg = document.createElementNS(SVG_NS, "svg");
+        const use = document.createElementNS(SVG_NS, "use");
+        use.setAttribute("href", item);
+        svg.appendChild(use);
+        svg.setAttribute("focusable", "false");
+        particle.classList.add("particle--svg");
+        particle.style.color = pick(PARTICLE_COLORS);
+        particle.appendChild(svg);
+      } else {
+        particle.textContent = item;
+      }
       particle.setAttribute("aria-hidden", "true");
       particle.style.setProperty("--x", `${random(-88, 88).toFixed(1)}px`);
       particle.style.setProperty("--dx", `${random(-42, 42).toFixed(1)}px`);
@@ -292,18 +309,18 @@
 
     const reactions = {
       besos: {
-        message: "Besitos para vos 💋",
-        emojis: ["💋", "💕", "💗", "❤️"],
+        message: "Besitos para vos",
+        emojis: ["#ic-heart", "#ic-heart", "#ic-heart", "#ic-spark"],
         count: 15,
       },
       mimos: {
-        message: "Mimos para tu cabecita 🥰",
-        emojis: ["✨", "💫", "💕"],
+        message: "Mimos para tu cabecita",
+        emojis: ["#ic-spark", "#ic-spark", "#ic-heart"],
         count: 13,
       },
       abrazos: {
-        message: "Un abrazo bien apretado 🤗",
-        emojis: ["💗", "💖", "💞"],
+        message: "Un abrazo bien apretado",
+        emojis: ["#ic-heart", "#ic-heart", "#ic-spark"],
         count: 14,
       },
     };
