@@ -432,18 +432,6 @@
       });
     });
 
-    const goTo = (element, delay = 1000) => {
-      window.setTimeout(
-        () => {
-          element?.scrollIntoView({
-            behavior: prefersReduced() ? "auto" : "smooth",
-            block: "start",
-          });
-        },
-        prefersReduced() ? 200 : delay
-      );
-    };
-
     const unlockBox = () => {
       state.quizDone = true;
 
@@ -458,28 +446,34 @@
 
     /* La sorpresa solo se desbloquea cuando todas las preguntas están resueltas,
        no solo la última. */
-    const quizCue = $("#quizNextCue");
-
-    quizCue?.addEventListener("click", (event) => {
-      event.preventDefault();
-      $("#caja")?.scrollIntoView({
-        behavior: prefersReduced() ? "auto" : "smooth",
-        block: "start",
-      });
-    });
-
-    /* Muestra la flechita debajo de la pregunta que completó el cuestionario
-       (normalmente la última; si respondió en desorden, puede ser otra). */
-    const showQuizCue = (section) => {
-      if (!quizCue) return;
-      const inner = section ? $(".section__inner", section) : null;
-      if (inner && quizCue.parentElement !== inner) inner.appendChild(quizCue);
-      quizCue.hidden = false;
-      quizCue.classList.add("is-visible");
-    };
-
     const solvedGroups = new Set();
     const firstUnsolved = () => groups.find((group) => !solvedGroups.has(group));
+
+    /* Nunca se pasa de pregunta automáticamente: al acertar aparece una
+       flechita en esa pregunta. Al tocarla lleva a la próxima pregunta sin
+       responder o, si ya están todas, a la caja sorpresa. */
+    const cueTemplate = $("#quizNextCue");
+    cueTemplate?.remove();
+
+    const showQuizCue = (section) => {
+      const inner = section ? $(".section__inner", section) : null;
+      if (!cueTemplate || !inner || $(".next-cue", inner)) return;
+
+      const cue = cueTemplate.cloneNode(true);
+      cue.removeAttribute("id");
+      cue.addEventListener("click", (event) => {
+        event.preventDefault();
+        const target = firstUnsolved()?.closest(".section") || $("#caja");
+        target?.scrollIntoView({
+          behavior: prefersReduced() ? "auto" : "smooth",
+          block: "start",
+        });
+      });
+
+      inner.appendChild(cue);
+      cue.hidden = false;
+      cue.classList.add("is-visible");
+    };
 
     groups.forEach((group, index) => {
       const section = group.closest(".section");
@@ -511,7 +505,6 @@
           option.classList.add("is-correct");
 
           const allSolved = solvedGroups.size === groups.length;
-          const pending = firstUnsolved();
 
           let message = "¡Correcto! 💗";
           if (allSolved) message = "¡Correcto! Ganaste tu sorpresa 🎁";
@@ -527,16 +520,8 @@
             feedback.classList.add("is-visible");
           }
 
-          if (allSolved) {
-            unlockBox();
-            /* Sin desplazamiento automático: aparece la flechita para que
-               ella decida cuándo bajar a la sorpresa. */
-            showQuizCue(section);
-          } else {
-            /* Con mensaje especial, más tiempo para leerlo antes de pasar. */
-            const delay = option.dataset.extra ? 2400 : isLast ? 1400 : 950;
-            goTo(pending?.closest(".section"), delay);
-          }
+          if (allSolved) unlockBox();
+          showQuizCue(section);
         });
       });
     });
