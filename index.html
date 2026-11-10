@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Una mini app hecha con amor para princess.">
+  <meta name="theme-color" content="#fff6f1" id="themeColor">
+  <meta name="color-scheme" content="light">
+  <title>Para princess 💌</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    document.documentElement.classList.add('js');
+    window.setTimeout(function () {
+      if (!document.querySelector('.section.is-visible')) {
+        document.querySelectorAll('.section').forEach(function (section) {
+          section.classList.add('is-visible');
+        });
+      }
+    }, 1800);
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#hola">Ir al contenido</a>
+
+  <div class="progress" aria-hidden="true">
+    <span class="progress__bar" id="progressBar"></span>
+  </div>
+
+  <main id="main">
+    <!-- 01 · Saludo -->
+    <section class="section section--hola" id="hola" data-theme="#fff6f1" aria-labelledby="holaTitle">
+      <div class="section__inner">
+        <p class="eyebrow reveal"><span class="eyebrow__mark" aria-hidden="true">♥</span> Una cartita para vos</p>
+        <h1 class="display display--xl reveal" id="holaTitle" style="--delay: 80ms">Hola <em>princess</em>,</h1>
+        <p class="lead lead--wide reveal" style="--delay: 160ms">espero que estés teniendo un bonito día.</p>
+        <div class="heart-rule reveal" style="--delay: 240ms" aria-hidden="true">
+          <span></span><b>♥</b><span></span>
+        </div>
+      </div>
+      <div class="scroll-cue" id="scrollCue" aria-hidden="true">
+        <span>Deslizá</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 4v15M6.5 13.5 12 19l5.5-5.5"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 02 · Quiero que sepas -->
+    <section class="section section--soft" id="quiero-que-sepas" data-theme="#fff3ec" aria-labelledby="sepasTitle">
+      <div class="section__inner">
+        <div class="petal" aria-hidden="true">✦</div>
+        <h2 class="display display--lg reveal" id="sepasTitle">quiero<br><em>que sepas</em>...</h2>
+      </div>
+    </section>
+
+    <!-- 03 · El regalito -->
+    <section class="section section--pink" id="tu-regalo" data-theme="#ffe9ee" aria-labelledby="regaloTitle">
+      <div class="section__inner">
+        <h2 class="display display--md reveal" id="regaloTitle">que me gustó mucho<br>tu <em>regalito</em></h2>
+        <figure class="polaroid reveal" style="--delay: 120ms">
+          <div class="polaroid__photo">
+            <img src="assets/regalo.jpg" alt="Foto del regalo que me diste" width="800" height="1000" decoding="async">
+          </div>
+          <figcaption>tu regalito <span aria-hidden="true">🎁</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 04 · Gracias -->
+    <section class="section section--thanks" id="gracias" data-theme="#ffe3e8" aria-labelledby="graciasTitle">
+      <div class="sparkles" aria-hidden="true">
+        <span class="sparkle sparkle--1">♥</span>
+        <span class="sparkle sparkle--2">✦</span>
+        <span class="sparkle sparkle--3">♥</span>
+        <span class="sparkle sparkle--4">✦</span>
+      </div>
+      <div class="section__inner">
+        <h2 class="display display--xl reveal" id="graciasTitle">¡Gracias<span class="accent-mark">!!!</span></h2>
+        <div class="heart-rule reveal" style="--delay: 120ms" aria-hidden="true">
+          <span></span><b>♥</b><span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · Por otra parte -->
+    <section class="section section--soft" id="por-otra-parte" data-theme="#fff2ec" aria-labelledby="otraParteTitle">
+      <div class="section__inner">
+        <h2 class="display display--lg reveal" id="otraParteTitle">Por otra<br><em>parte</em>...</h2>
+      </div>
+    </section>
+
+    <!-- 06 · Disculpas -->
+    <section class="section section--peach" id="mi-perdon" data-theme="#fff0e9" aria-labelledby="perdonTitle">
+      <div class="section__inner">
+        <h2 class="sr-only" id="perdonTitle">Mis disculpas</h2>
+        <blockquote class="confession reveal">
+          <span class="confession__mark" aria-hidden="true">“</span>
+          <p>Quería recalcar mi perdón por lo sucedido. Conociéndote, seguro tu cabecita estuvo a mil estas horas, ni imaginarme las emociones que sentiste.</p>
+        </blockquote>
+        <div class="tiny-hearts reveal" style="--delay: 150ms" aria-hidden="true"><span>♥</span><span>♥</span><span>♥</span></div>
+      </div>
+    </section>
+
+    <!-- 07 · La mini app -->
+    <section class="section section--blush" id="esta-app" data-theme="#ffecef" aria-labelledby="appTitle">
+      <div class="section__inner">
+        <h2 class="sr-only" id="appTitle">Por qué hice esta mini app</h2>
+        <blockquote class="confession confession--plain reveal">
+          <p>Así que por eso sentí que no fue suficiente pedirte disculpas de palabra y decidí crear esta mini app para demostrarte que en verdad lo siento y que sos una personita muy valiosa para mí que me gustaría seguir manteniendo en mi vida como mi novia.</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- 08 · Empecemos -->
+    <section class="section section--soft" id="empecemos" data-theme="#fff6f1" aria-labelledby="empecemosTitle">
+      <div class="section__inner">
+        <h2 class="display display--md reveal" id="empecemosTitle">Empecemos, asegurándonos de que esto <em>no vuelva a pasar</em>...</h2>
+        <div class="down-cue reveal" style="--delay: 160ms" aria-hidden="true">
+          <span></span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4v15M6.5 13.5 12 19l5.5-5.5"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 · Contrato -->
+    <section class="section section--contract" id="contrato" data-theme="#fdf3ee" aria-labelledby="contratoTitle">
+      <div class="section__inner section__inner--contract">
+        <p class="eyebrow reveal"><span class="eyebrow__mark" aria-hidden="true">♥</span> Nuestro acuerdo</p>
+        <h2 class="display display--sm reveal" id="contratoTitle" style="--delay: 60ms">Contrato de reglas por si nos peleamos:</h2>
+
+        <div class="contract-card reveal" style="--delay: 140ms">
+          <ul class="rules">
+            <li class="rule rule--no">
+              <span class="rule__icon" aria-hidden="true">✕</span>
+              <span>prohibido amenazar con terminar la relación.</span>
+            </li>
+            <li class="rule rule--no">
+              <span class="rule__icon" aria-hidden="true">✕</span>
+              <span>prohibido la agresión física.</span>
+            </li>
+            <li class="rule rule--no">
+              <span class="rule__icon" aria-hidden="true">✕</span>
+              <span>prohibido gritar.</span>
+            </li>
+            <li class="rule rule--yes">
+              <span class="rule__icon" aria-hidden="true">✓</span>
+              <span>permitido enojarse, pero fijamos un horario para hablarlo más tarde en frío.</span>
+            </li>
+          </ul>
+
+          <div class="signatures" aria-label="Firmas del contrato">
+            <figure class="signature-block">
+              <img class="signature-img" src="assets/firma.png" alt="Mi firma" width="640" height="220" decoding="async">
+              <figcaption>Mi firma</figcaption>
+            </figure>
+            <div class="signature-block signature-block--her">
+              <div class="sign-line">
+                <span class="sign-placeholder" id="herSignaturePlaceholder">Tu firma</span>
+                <span class="sign-name" id="herSignature" hidden></span>
+              </div>
+              <span class="signature-label">Tu firma</span>
+            </div>
+          </div>
+
+          <form class="sign-form" id="signForm" novalidate>
+            <label for="signName">Firmá acá</label>
+            <div class="sign-form__row">
+              <input id="signName" name="name" type="text" maxlength="24" autocomplete="name" enterkeyhint="done" placeholder="Tu nombre" aria-describedby="signHint" required>
+              <button class="btn btn--small btn--sign" id="signBtn" type="submit" disabled>Firmar</button>
+            </div>
+            <p class="field-hint" id="signHint">Escribí tu nombre y tocá “Firmar”.</p>
+          </form>
+
+          <p class="signed-meta" id="signedMeta" hidden></p>
+        </div>
+        <p class="sr-only" id="signLive" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- 10 · Segundo regalito (intro) -->
+    <section class="section section--soft" id="segundo-regalo" data-theme="#fff3ec" aria-labelledby="segundoRegaloTitle">
+      <div class="section__inner">
+        <h2 class="display display--md reveal" id="segundoRegaloTitle">En segundo lugar, quiero darte <em>este regalito</em>.</h2>
+      </div>
+    </section>
+
+    <!-- 11 · Besos, mimos y abrazos -->
+    <section class="section section--affection" id="besos-mimos-abrazos" data-theme="#ffedf0" aria-labelledby="cariñoTitle">
+      <div class="section__inner">
+        <h2 class="affection-title reveal" id="cariñoTitle">Elegí uno de los tres 💌</h2>
+
+        <div class="affection-stage reveal" id="affectionStage" style="--delay: 100ms" aria-hidden="true">
+          <div class="affection-idle" id="affectionIdle">
+            <span class="idle-heart">💌</span>
+            <span class="idle-spark idle-spark--1">✦</span>
+            <span class="idle-spark idle-spark--2">✦</span>
+          </div>
+
+          <div class="scene" data-scene="besos">
+            <div class="particles"></div>
+            <span class="scene-emoji">💋</span>
+          </div>
+
+          <div class="scene scene--mimos" data-scene="mimos">
+            <div class="particles"></div>
+            <span class="scene-emoji scene-emoji--head">🥰</span>
+            <span class="scene-hand">✋</span>
+          </div>
+
+          <div class="scene scene--abrazos" data-scene="abrazos">
+            <div class="particles"></div>
+            <span class="scene-emoji">🤗</span>
+            <span class="scene-extra scene-extra--1">💗</span>
+            <span class="scene-extra scene-extra--2">💞</span>
+          </div>
+        </div>
+
+        <p class="affection-caption reveal" id="affectionCaption" style="--delay: 140ms" aria-live="polite"></p>
+
+        <div class="affection-buttons reveal" style="--delay: 180ms" role="group" aria-label="Regalitos de cariño">
+          <button class="affection-btn" type="button" data-affection="besos">
+            <span class="affection-btn__icon" aria-hidden="true">💋</span>
+            <span>Besos</span>
+          </button>
+          <button class="affection-btn" type="button" data-affection="mimos">
+            <span class="affection-btn__icon" aria-hidden="true">🥰</span>
+            <span>Mimos</span>
+          </button>
+          <button class="affection-btn" type="button" data-affection="abrazos">
+            <span class="affection-btn__icon" aria-hidden="true">🤗</span>
+            <span>Abrazos</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 · ¿Sorpresa? -->
+    <section class="section section--surprise" id="sorpresa" data-theme="#7a2f42" aria-labelledby="sorpresaTitle">
+      <div class="surprise-orbit" aria-hidden="true">
+        <span>♥</span><span>✦</span><span>♥</span>
+      </div>
+      <div class="section__inner">
+        <p class="eyebrow eyebrow--light reveal">Una preguntita</p>
+        <h2 class="display display--lg reveal" id="sorpresaTitle" style="--delay: 70ms">¿Querés una<br><em>sorpresa más</em>?</h2>
+        <div class="choice-buttons reveal" style="--delay: 150ms">
+          <button class="btn btn--no" id="noBtn" type="button">No</button>
+          <button class="btn btn--yes" id="yesBtn" type="button">Yep <span aria-hidden="true">✨</span></button>
+        </div>
+        <p class="no-tease" id="noTease" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- 13 · Cuestionario (intro) -->
+    <section class="section section--quiz" id="cuestionario" data-theme="#fff3ec" aria-labelledby="cuestionarioTitle">
+      <div class="section__inner">
+        <p class="eyebrow reveal"><span class="eyebrow__mark" aria-hidden="true">♥</span> Antes de la sorpresa</p>
+        <h2 class="display display--md reveal" id="cuestionarioTitle" style="--delay: 70ms">Ok, pero para ganarte la sorpresa vas a tener que resolver este <em>mini cuestionario</em>. ¡Empecemos!</h2>
+        <div class="quiz-start reveal" style="--delay: 150ms">
+          <button class="btn btn--quiz" id="startQuiz" type="button">Empezar <span aria-hidden="true">✨</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 · Pregunta 1 -->
+    <section class="section section--quiz" id="pregunta-1" data-theme="#fff3ec" aria-labelledby="p1Title">
+      <div class="section__inner section__inner--quiz">
+        <p class="eyebrow reveal"><span class="eyebrow__mark" aria-hidden="true">♥</span> Pregunta 1 de 3</p>
+        <h2 class="display display--sm reveal" id="p1Title" style="--delay: 60ms">¿Qué hay más allá de Moreno?</h2>
+        <div class="quiz-options reveal" style="--delay: 120ms" role="group" aria-labelledby="p1Title">
+          <button class="quiz-option" type="button">
+            <span class="quiz-option__mark" aria-hidden="true">A</span>
+            <span>Bolivia</span>
+          </button>
+          <button class="quiz-option" type="button">
+            <span class="quiz-option__mark" aria-hidden="true">B</span>
+            <span>Ciudad chistosa</span>
+          </button>
+          <button class="quiz-option" type="button" data-correct="true">
+            <span class="quiz-option__mark" aria-hidden="true">C</span>
+            <span>Gorgonia</span>
+          </button>
+        </div>
+        <p class="quiz-feedback" id="p1Feedback" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- 15 · Pregunta 2 -->
+    <section class="section section--quiz" id="pregunta-2" data-theme="#fff3ec" aria-labelledby="p2Title">
+      <div class="section__inner section__inner--quiz">
+        <p class="eyebrow reveal"><span class="eyebrow__mark" aria-hidden="true">♥</span> Pregunta 2 de 3</p>
+        <h2 class="display display--sm reveal" id="p2Title" style="--delay: 60ms">¿Cuánto es 1 + 2?</h2>
+        <div class="quiz-options reveal" style="--delay: 120ms" role="group" aria-labelledby="p2Title">
+          <button class="quiz-option" type="button">
+            <span class="quiz-option__mark" aria-hidden="true">A</span>
+            <span>5</span>
+          </button>
+          <button class="quiz-option" type="button" data-correct="true">
+            <span class="quiz-option__mark" aria-hidden="true">B</span>
+            <span>Esa es una pregunta para mongolitos.</span>
+          </button>
+          <button class="quiz-option" type="button">
+            <span class="quiz-option__mark" aria-hidden="true">C</span>
+            <span>2</span>
+          </button>
+        </div>
+        <p class="quiz-feedback" id="p2Feedback" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- 16 · Pregunta 3 -->
+    <section class="section section--quiz" id="pregunta-3" data-theme="#fff3ec" aria-labelledby="p3Title">
+      <div class="section__inner section__inner--quiz">
+        <p class="eyebrow reveal"><span class="eyebrow__mark" aria-hidden="true">♥</span> Pregunta 3 de 3</p>
+        <h2 class="display display--sm reveal" id="p3Title" style="--delay: 60ms">¿Cuándo fue el día que te pedí ser mi novia?</h2>
+        <div class="quiz-options reveal" style="--delay: 120ms" role="group" aria-labelledby="p3Title">
+          <button class="quiz-option" type="button">
+            <span class="quiz-option__mark" aria-hidden="true">A</span>
+            <span>25 de diciembre de 2025</span>
+          </button>
+          <button class="quiz-option" type="button" data-correct="true">
+            <span class="quiz-option__mark" aria-hidden="true">B</span>
+            <span>22 de enero del 2026</span>
+          </button>
+          <button class="quiz-option" type="button">
+            <span class="quiz-option__mark" aria-hidden="true">C</span>
+            <span>¿Qué flasheás, gordo?</span>
+          </button>
+          <button class="quiz-option" type="button">
+            <span class="quiz-option__mark" aria-hidden="true">D</span>
+            <span>22 de febrero del 2026</span>
+          </button>
+        </div>
+        <p class="quiz-feedback" id="p3Feedback" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- 17 · Caja sorpresa -->
+    <section class="section section--box" id="caja" data-theme="#3f1e2a" aria-labelledby="cajaTitle">
+      <div class="section__inner">
+        <p class="eyebrow eyebrow--light reveal" id="boxEyebrow">Sorpresa bloqueada</p>
+        <h2 class="sr-only" id="cajaTitle">Caja sorpresa</h2>
+
+        <div class="box-stage reveal" id="boxStage" style="--delay: 80ms">
+          <div class="box-glow" aria-hidden="true"></div>
+
+          <svg class="gift-box" viewBox="0 0 320 300" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="boxBody" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#d96c83"/>
+                <stop offset="1" stop-color="#a93b53"/>
+              </linearGradient>
+              <linearGradient id="boxLid" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ec8fa2"/>
+                <stop offset="1" stop-color="#c2536a"/>
+              </linearGradient>
+              <linearGradient id="boxRibbon" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f7e2b0"/>
+                <stop offset="1" stop-color="#d8ac57"/>
+              </linearGradient>
+              <filter id="boxShadow" x="-40%" y="-40%" width="180%" height="180%">
+                <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#1d0a10" flood-opacity=".42"/>
+              </filter>
+            </defs>
+
+            <ellipse class="box-floor" cx="160" cy="274" rx="104" ry="13" fill="#170810" opacity=".45"/>
+
+            <g class="box-body" filter="url(#boxShadow)">
+              <rect x="66" y="153" width="188" height="112" rx="14" fill="url(#boxBody)"/>
+              <rect x="143" y="153" width="34" height="112" fill="url(#boxRibbon)"/>
+              <rect x="88" y="177" width="58" height="18" rx="9" fill="#fff" opacity=".14"/>
+            </g>
+
+            <g class="box-lid">
+              <rect x="50" y="112" width="220" height="55" rx="13" fill="url(#boxLid)" filter="url(#boxShadow)"/>
+              <rect x="143" y="112" width="34" height="55" fill="url(#boxRibbon)"/>
+              <path d="M160 114c-26-42-76-49-82-22-5 23 36 33 82 22Z" fill="url(#boxRibbon)"/>
+              <path d="M160 114c26-42 76-49 82-22 5 23-36 33-82 22Z" fill="url(#boxRibbon)"/>
+              <ellipse cx="160" cy="114" rx="16" ry="14" fill="#e8c477"/>
+              <path d="M154 121c-5 13-4 26 1 37M166 120c5 12 4 24 0 35" fill="none" stroke="#c49a44" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+            </g>
+
+            <g class="box-confetti-svg" aria-hidden="true">
+              <path d="m78 84 3 8 8 3-8 3-3 8-3-8-8-3 8-3Z" fill="#f7e2b0" opacity=".8"/>
+              <path d="m241 74 2 6 6 2-6 2-2 6-2-6-6-2 6-2Z" fill="#fff" opacity=".55"/>
+            </g>
+          </svg>
+
+          <article class="ticket" id="ticket" tabindex="-1" aria-hidden="true">
+            <div class="ticket__head">
+              <span>Ticket de regalo</span>
+              <span>N.º 001</span>
+            </div>
+            <div class="ticket__perf" aria-hidden="true"></div>
+            <p class="ticket__text">Ticket válido para pedirme lo que querías en el barrio chino por un día.</p>
+            <div class="ticket__foot">
+              <span>Para princess</span>
+              <span aria-hidden="true">♥</span>
+            </div>
+          </article>
+
+          <div class="box-particles" id="boxParticles" aria-hidden="true"></div>
+        </div>
+
+        <button class="btn btn--open reveal" id="openBox" type="button" style="--delay: 160ms" aria-describedby="ticketHint" disabled>
+          Abrir <span aria-hidden="true">🎀</span>
+        </button>
+        <p class="ticket-hint reveal" id="ticketHint" style="--delay: 200ms">Primero resolvé el cuestionario, pillina</p>
+        <p class="sr-only" id="boxLive" role="status" aria-live="polite"></p>
+        <a class="next-cue" id="nextCue" href="#final" hidden>
+          <span>Seguí deslizando</span>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 4v15M6.5 13.5 12 19l5.5-5.5"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- 14 · Espero que te haya gustado -->
+    <section class="section section--finale" id="final" data-theme="#fff6f1" aria-labelledby="finalTitle">
+      <div class="section__inner">
+        <div class="final-burst" aria-hidden="true">
+          <span>♥</span><span>✦</span><span>♥</span><span>✦</span><span>♥</span>
+        </div>
+        <h2 class="display display--md reveal" id="finalTitle">¡Espero que te haya gustado mi <em>mini app</em>!</h2>
+      </div>
+    </section>
+
+    <!-- 15 · Te amo -->
+    <section class="section section--love" id="te-amo" data-theme="#ffedf0" aria-labelledby="teAmoTitle">
+      <div class="floaties" aria-hidden="true">
+        <span class="floaty floaty--1">♥</span>
+        <span class="floaty floaty--2">♥</span>
+        <span class="floaty floaty--3">♥</span>
+        <span class="floaty floaty--4">♥</span>
+        <span class="floaty floaty--5">♥</span>
+        <span class="floaty floaty--6">♥</span>
+      </div>
+      <div class="section__inner">
+        <h2 class="display display--love reveal" id="teAmoTitle">Te amo mucho <em>muchote</em><span class="inline-heart">&lt;3</span></h2>
+        <div class="heart-rule reveal" style="--delay: 160ms" aria-hidden="true">
+          <span></span><b>♥</b><span></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
