@@ -396,7 +396,7 @@
   }
 
   /* ------------------------------------------------------------
-     Cuestionario — 3 preguntas y desbloqueo de la sorpresa
+     Cuestionario — 4 preguntas y desbloqueo de la sorpresa
      ------------------------------------------------------------ */
   function initQuiz() {
     const startButton = $("#startQuiz");
@@ -439,7 +439,7 @@
       if (hint) hint.textContent = "Hay algo adentro…";
     };
 
-    /* La sorpresa solo se desbloquea cuando las 3 preguntas están resueltas,
+    /* La sorpresa solo se desbloquea cuando todas las preguntas están resueltas,
        no solo la última. */
     const solvedGroups = new Set();
     const firstUnsolved = () => groups.find((group) => !solvedGroups.has(group));
@@ -479,6 +479,9 @@
           let message = "¡Correcto! 💗";
           if (allSolved) message = "¡Correcto! Ganaste tu sorpresa 🎁";
           else if (isLast) message = "¡Correcto! Pero te faltan preguntas por responder, pillina";
+
+          /* Mensaje especial de la respuesta (data-extra), junto al de correcto. */
+          if (option.dataset.extra) message += ` ${option.dataset.extra}`;
 
           if (feedback) {
             feedback.classList.remove("is-visible");
