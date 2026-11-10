@@ -195,6 +195,16 @@
     const signedMeta = $("#signedMeta");
     const live = $("#signLive");
     const herBlock = $(".signature-block--her");
+    const nextCue = $("#signNextCue");
+
+    /* Flechita que aparece al firmar y baja a la sección siguiente. */
+    nextCue?.addEventListener("click", (event) => {
+      event.preventDefault();
+      $("#segundo-regalo")?.scrollIntoView({
+        behavior: prefersReduced() ? "auto" : "smooth",
+        block: "start",
+      });
+    });
 
     if (!form || !input || !button || !placeholder || !nameOutput || !signedMeta) return;
 
@@ -224,6 +234,11 @@
       signedMeta.textContent = `Firmado el ${formatDate(state.signedAt)}`;
 
       if (live) live.textContent = "Contrato firmado. Gracias por firmar.";
+
+      if (nextCue) {
+        nextCue.hidden = false;
+        nextCue.classList.add("is-visible");
+      }
 
       if (animate && herBlock) {
         herBlock.classList.add("is-signed");
