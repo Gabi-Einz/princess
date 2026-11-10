@@ -263,8 +263,13 @@
       }, 260);
     });
 
+    /* Mientras se firma, el scroll-snap sigue apagado aunque el input pierda
+       el foco: si se reactivaba con la página corrida por el teclado, el
+       snap la encajaba en la sección siguiente y parecía deslizarse sola. */
+    let signing = false;
+
     input.addEventListener("blur", () => {
-      html.classList.remove("input-focused");
+      if (!signing) html.classList.remove("input-focused");
     });
 
     /* Evita que el input pierda el foco al tocar "Firmar": el blur reactivaba
@@ -285,6 +290,8 @@
 
       button.disabled = true;
       button.textContent = "Firmando…";
+      signing = true;
+      html.classList.add("input-focused");
       input.blur();
 
       window.setTimeout(
@@ -298,6 +305,26 @@
           storage.set(STORAGE_KEYS.date, state.signedAt);
 
           renderSigned(true);
+
+          /* Con el teclado ya cerrado, vuelve al inicio del contrato y recién
+             ahí reactiva el snap, así la página queda quieta en el contrato. */
+          const section = form.closest(".section");
+          window.setTimeout(
+            () => {
+              section?.scrollIntoView({
+                behavior: prefersReduced() ? "auto" : "smooth",
+                block: "start",
+              });
+              window.setTimeout(
+                () => {
+                  signing = false;
+                  html.classList.remove("input-focused");
+                },
+                prefersReduced() ? 50 : 700
+              );
+            },
+            prefersReduced() ? 0 : 180
+          );
         },
         prefersReduced() ? 0 : 320
       );
