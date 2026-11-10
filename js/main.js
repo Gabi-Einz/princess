@@ -634,7 +634,7 @@
 
           if (live) {
             live.textContent =
-              "La caja se abrió. Tu ticket dice: Ticket válido para pedirme lo que querías en el barrio chino por un día.";
+              "La caja se abrió. Tu ticket dice: Ticket válido para pedirme lo que quieras en el barrio chino por un día.";
           }
 
           window.requestAnimationFrame(() => {
