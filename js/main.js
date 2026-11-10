@@ -458,6 +458,26 @@
 
     /* La sorpresa solo se desbloquea cuando todas las preguntas están resueltas,
        no solo la última. */
+    const quizCue = $("#quizNextCue");
+
+    quizCue?.addEventListener("click", (event) => {
+      event.preventDefault();
+      $("#caja")?.scrollIntoView({
+        behavior: prefersReduced() ? "auto" : "smooth",
+        block: "start",
+      });
+    });
+
+    /* Muestra la flechita debajo de la pregunta que completó el cuestionario
+       (normalmente la última; si respondió en desorden, puede ser otra). */
+    const showQuizCue = (section) => {
+      if (!quizCue) return;
+      const inner = section ? $(".section__inner", section) : null;
+      if (inner && quizCue.parentElement !== inner) inner.appendChild(quizCue);
+      quizCue.hidden = false;
+      quizCue.classList.add("is-visible");
+    };
+
     const solvedGroups = new Set();
     const firstUnsolved = () => groups.find((group) => !solvedGroups.has(group));
 
@@ -509,9 +529,13 @@
 
           if (allSolved) {
             unlockBox();
-            goTo($("#caja"), 1200);
+            /* Sin desplazamiento automático: aparece la flechita para que
+               ella decida cuándo bajar a la sorpresa. */
+            showQuizCue(section);
           } else {
-            goTo(pending?.closest(".section"), isLast ? 1400 : 950);
+            /* Con mensaje especial, más tiempo para leerlo antes de pasar. */
+            const delay = option.dataset.extra ? 2400 : isLast ? 1400 : 950;
+            goTo(pending?.closest(".section"), delay);
           }
         });
       });

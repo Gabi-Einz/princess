@@ -35,7 +35,7 @@
       <div class="section__inner">
         <p class="eyebrow reveal"><span class="eyebrow__mark" aria-hidden="true">♥</span> Una cartita para vos</p>
         <h1 class="display display--xl reveal" id="holaTitle" style="--delay: 80ms">Hola <em>princess</em>,</h1>
-        <p class="lead lead--wide reveal" style="--delay: 160ms">espero que estés teniendo un bonito día.</p>
+        <p class="lead lead--wide reveal" style="--delay: 160ms">espero que estés bien.</p>
         <div class="heart-rule reveal" style="--delay: 240ms" aria-hidden="true">
           <span></span><b>♥</b><span></span>
         </div>
@@ -109,7 +109,7 @@
       <div class="section__inner">
         <h2 class="sr-only" id="appTitle">Por qué hice esta mini app</h2>
         <blockquote class="confession confession--plain reveal">
-          <p>Así que por eso sentí que no fue suficiente pedirte disculpas de palabra y decidí crear esta mini app para demostrarte que en verdad lo siento y que sos una personita muy valiosa para mí que me gustaría seguir manteniendo en mi vida como mi novia.</p>
+          <p>Sentí que las palabras no fueron suficientes para pedirte disculpas y por eso decidí crear esta mini app para demostrarte que en verdad lo siento y que sos una personita muy valiosa para mí que me gustaría seguir manteniendo en mi vida como mi novia.</p>
         </blockquote>
       </div>
     </section>
@@ -378,8 +378,31 @@
     <section class="section section--quiz" id="pregunta-3" data-theme="#fff3ec" aria-labelledby="p3Title">
       <div class="section__inner section__inner--quiz">
         <p class="eyebrow reveal"><span class="eyebrow__mark" aria-hidden="true">♥</span> Pregunta 3 de 4</p>
-        <h2 class="display display--sm reveal" id="p3Title" style="--delay: 60ms">¿Cuándo fue el día que te pedí ser mi novia?</h2>
+        <h2 class="display display--sm reveal" id="p3Title" style="--delay: 60ms">¿Cómo se dice <em>night</em> en español?</h2>
         <div class="quiz-options reveal" style="--delay: 120ms" role="group" aria-labelledby="p3Title">
+          <button class="quiz-option" type="button">
+            <span class="quiz-option__mark" aria-hidden="true">A</span>
+            <span>Oscuridad</span>
+          </button>
+          <button class="quiz-option" type="button">
+            <span class="quiz-option__mark" aria-hidden="true">B</span>
+            <span>Ausencia del sol</span>
+          </button>
+          <button class="quiz-option" type="button" data-correct="true" data-extra="¿Aw, nochabes? ¡Qué tierna que sos!">
+            <span class="quiz-option__mark" aria-hidden="true">C</span>
+            <span>Noche</span>
+          </button>
+        </div>
+        <p class="quiz-feedback" id="p3Feedback" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- 16b · Pregunta 4 -->
+    <section class="section section--quiz" id="pregunta-4" data-theme="#fff3ec" aria-labelledby="p4Title">
+      <div class="section__inner section__inner--quiz">
+        <p class="eyebrow reveal"><span class="eyebrow__mark" aria-hidden="true">♥</span> Pregunta 4 de 4</p>
+        <h2 class="display display--sm reveal" id="p4Title" style="--delay: 60ms">¿Cuándo fue el día que te pedí ser mi novia?</h2>
+        <div class="quiz-options reveal" style="--delay: 120ms" role="group" aria-labelledby="p4Title">
           <button class="quiz-option" type="button">
             <span class="quiz-option__mark" aria-hidden="true">A</span>
             <span>25 de diciembre de 2025</span>
@@ -397,30 +420,13 @@
             <span>22 de febrero del 2026</span>
           </button>
         </div>
-        <p class="quiz-feedback" id="p3Feedback" role="status" aria-live="polite"></p>
-      </div>
-    </section>
-
-    <!-- 16b · Pregunta 4 -->
-    <section class="section section--quiz" id="pregunta-4" data-theme="#fff3ec" aria-labelledby="p4Title">
-      <div class="section__inner section__inner--quiz">
-        <p class="eyebrow reveal"><span class="eyebrow__mark" aria-hidden="true">♥</span> Pregunta 4 de 4</p>
-        <h2 class="display display--sm reveal" id="p4Title" style="--delay: 60ms">¿Cómo se dice <em>night</em> en español?</h2>
-        <div class="quiz-options reveal" style="--delay: 120ms" role="group" aria-labelledby="p4Title">
-          <button class="quiz-option" type="button">
-            <span class="quiz-option__mark" aria-hidden="true">A</span>
-            <span>Oscuridad</span>
-          </button>
-          <button class="quiz-option" type="button">
-            <span class="quiz-option__mark" aria-hidden="true">B</span>
-            <span>Ausencia del sol</span>
-          </button>
-          <button class="quiz-option" type="button" data-correct="true" data-extra="¿Aw, nochabes? ¡Qué tierna que sos!">
-            <span class="quiz-option__mark" aria-hidden="true">C</span>
-            <span>Noche</span>
-          </button>
-        </div>
         <p class="quiz-feedback" id="p4Feedback" role="status" aria-live="polite"></p>
+        <a class="next-cue next-cue--light-bg" id="quizNextCue" href="#caja" hidden>
+          <span>Seguí deslizando</span>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 4v15M6.5 13.5 12 19l5.5-5.5"/>
+          </svg>
+        </a>
       </div>
     </section>
 
